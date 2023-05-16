@@ -1,0 +1,55 @@
+*
+{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.column1 {
+  float: left; 
+  width: 33%;
+  padding:10px;
+  margin:20px 8px;
+  margin-right: auto;
+  background-color:#00468c;
+  height: 450px;
+  color:#FFFFFF;
+  margin-top: 40px;
+  margin-left: 150px;
+  
+}
+
+.column2 {
+  float: left; 
+  width: 34%;
+  padding: 10px;
+  margin:20px 8px;
+  margin-right: auto;
+  background-color:#ffffff;
+  height: 450px;
+  color:#000000;
+  margin-top: 40px;
+  margin-left:-1px;
+}
+.column1 input[type="text"] {
+  width: 100%;
+  padding: 0.3rem 0.3rem;
+  margin: 0.5rem 0;
+  outline: none;
+}
+.column1 input[type="message"] {
+  width: 100%;
+  padding: 0.8rem 0.3rem;
+  margin: 0.5rem 0;
+  outline: none;
+}
+
+body{
+background:url(/Images/Contact.png);
+background-position: center;
+width:90%;
+height:1650px;
+margin-left: 105px;
+background-repeat: no-repeat;
+margin-top: 25px;
+background-color:#d2d2ff;
+}

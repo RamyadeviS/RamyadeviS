@@ -1,0 +1,85 @@
+
+.profile-badge{
+  
+    padding:1px;
+    position: relative;
+    
+}
+
+.user-detail{
+    background-color: #fff;
+    position: relative;
+    padding:115px 0px 10px 0px;
+    color:#000000;
+    width: 380px;
+    margin-left:-40px;
+    margin-top: 30px;
+}
+.user-detail h3{
+    margin: 3px;
+    margin:0px 0px 5px 2px;
+    color: #000;
+}
+.user-detail p{
+    font-size:14px;
+}
+.user-detail .btn{
+    margin-bottom:10px;
+    background-color: #c0c0c0;
+    border:1px solid #DEDEDE;
+    border-radius: 0px;
+    color:black;
+}
+.user-detail .btn i{
+    color:#D35B4D;
+    padding-right:18px;
+}
+.profile-pic{
+    position: absolute;
+    height:130px;
+    width:160px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+    z-index: 1001;
+    padding: 3px;
+    padding-left: 30px;
+    
+}
+.profile-pic img{
+   
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 0px #c1c1c1;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    margin-left: -10px;
+}   
+
+.container
+{
+	background-color: #ffc1e0;
+	margin-left: 300px;
+}
+
+.style{
+	background-color:fuchsia;
+}
+#Profile{
+	margin-left: 100px;
+	margin-top:300px;
+	height: 200px;
+	width: 100px;
+}
+button {
+	color:#93ffff;
+	width:80px;
+    height:30px; 
+    border-radius: 10px;
+}
+a{
+	text-decoration: none;
+}
+h1{
+	margin-left: 700px;
+}

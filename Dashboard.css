@@ -1,0 +1,238 @@
+
+*
+{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    
+}
+body{
+        background-size: cover;
+        background-position: center;
+        box-sizing: border-box;
+        font-family: sans-serif;
+       
+}
+.menu-bar {
+    background: #ff8080;
+    text-align: center;
+    width:1350px;
+    margin-left: -50px;
+}
+.menu-bar ul{
+    display: inline-flex;
+    list-style: none;
+    color: #FFFFFF;
+}
+
+.menu-bar ul ol {
+    width: 170px;
+    margin: 15px;
+    padding: 19px;
+}
+
+.menu-bar ul ol a {
+    text-decoration: none;
+    color:#000000 ;
+}
+.active, .menu-bar ul ol:hover {
+background:#FF6347 ;
+border-radius: 3px;
+}
+.menu-bar .fa {
+    margin-right: 7px;
+}
+
+.sub-menu-a {
+    display: none;  
+}
+.menu-bar ul ol:hover .sub-menu {
+    display: block;
+    position: absolute;
+    background: rgb(255,99,71);
+    margin-top: 15px;
+    margin-left: -15px;
+}
+
+.menu-bar ul ol:hover .sub-menu ul {
+    display: block;
+    margin: 10px;
+}
+.menu-bar ul ol:hover .sub-menu ul ol {
+width: 150px;
+padding: 10px;
+border-bottom: 1px dotted #fff;
+background: transparent;
+border-radius: 0%;
+text-align: left;
+}
+.menu-bar ul ol:hover .sub-menu ul ol:last-child {
+border-bottom: none;
+}
+.menu-bar ul ol:hover .sub-menu ul ol a:hover{
+    color: #ff8080;
+}
+
+.sub-menu-b{
+    display: none;
+}
+.hover-me:hover .sub-menu-a {
+    position: absolute;
+    display: block;
+    margin-top: -40px;
+    margin-left: 140px;
+    
+}
+
+.sub-menu-c {
+    display: none;
+}
+.hover-me:hover .sub-menu-c{
+    position: absolute;
+    display: block;
+    margin-top: -40px;
+    margin-left: 140px;
+    
+}
+
+.column {
+  float: left; 
+  width: 30%;
+  padding: 10px;
+  margin-top: auto;
+  margin-right: auto;
+  background-color:#E9967A;
+  height: 400px;
+  padding-right: 1px;
+  padding-bottom: 10px;
+
+}
+.Epass img {
+	position:relative;
+	width:372px;
+	height:443px;
+	padding-bottom: 20px;
+	padding-top:2px;
+	margin-bottom: 9px;
+	bottom: 12px;
+	right: 37px;
+	
+}
+.column1 {
+  float: left; 
+  width: 35%;
+  padding: 10px;
+  margin-top: auto;
+  margin-right: auto;
+  background-color:#000080;
+  height: 420px;
+  color:#FFFFFF;
+  font-size: 13px;
+}
+
+.column2 {
+  float: left; 
+  width: 35%;
+  padding: 10px;
+  margin-top: auto;
+  margin-right: auto;
+  background-color:#FF4500;
+  height: 420px;
+  color:#FFFFFF;
+  font-size: 16px;
+}
+.ul{
+	display: block;
+	list-style-type: disc;
+	padding-left: 100px;
+	margin-top: 1em;
+}
+.search {
+	
+	margin-right: 10px;
+}
+
+
+h4{
+	margin-top: 30px;
+    
+}
+p{
+	color: navy;
+}
+.online{
+	margin-top: -230px;
+}
+#insta{
+	height: 70px;
+	width: 100px;
+	margin-left: 500px;	
+	margin-bottom: -100px;
+	
+}
+#google{
+	height: 40px;
+	width: 50px;
+	margin-left: 10px;
+	margin-bottom: -90px;
+	
+}
+#facebook{
+	height: 30px;
+	width: 40px;
+	margin-left: 10px;
+   margin-bottom: -80px;
+}
+#youtube2{
+	height: 80px;
+	width: 80px;
+	margin-left: 10px;
+	margin-top: -190px;
+	margin-bottom: -105px;
+}
+#logo{
+	height: 200px;
+	width: 450px;
+	margin-left: 370px;
+	margin-top: -190px;
+	margin-bottom: -195px;
+	
+}
+
+#Home{
+	height: 210px;
+	width: 230px;
+	margin-left: 70px;
+	margin-top: -190px;
+	margin-bottom: -195px;
+	
+}
+#epassImg{
+	height: 200px;
+	width: 180px;
+	margin-left: 30px;
+	margin-top: -190px;
+	margin-bottom: -195px;
+	
+}
+#ImgPlane{
+	height: 200px;
+	width: 200px;
+	margin-left: 10px;
+	margin-top: -199px;
+	margin-bottom: -195px;
+	
+}
+#Tn{
+	height: 140px;
+	width: 140px;
+	margin-left: 550px;
+	margin-top: -200px;
+	margin-bottom: -265px;
+	
+}
+#Awarness{
+	width: 800px;
+	height: 500px;
+	margin-left: 230px;
+}

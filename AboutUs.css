@@ -1,0 +1,39 @@
+*{
+	margin:0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+ body{
+background:url(/Images/pic.jpeg);
+background-position: center;
+background-size: cover;
+width:80%;
+height:1450px;
+margin-left: 115px;
+background-repeat: no-repeat;
+margin-top: 20px;
+}
+
+ 
+.container{
+        margin: 20px auto;
+        background-color:#ff80c0;
+        box-sizing: 10px;
+        border-radius: 8px;
+        margin-top:20px;
+        align-content: left;
+        height: 520px;
+        width: 875px;
+}
+.para{
+	margin-left: 430px;
+}
+.image img{
+        height:400px ;
+        width: 330px;
+        margin-left:40px;
+        margin-bottom: 670px;
+        margin-top: -390px;
+}

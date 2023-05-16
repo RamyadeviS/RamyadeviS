@@ -1,0 +1,54 @@
+body {
+background:url(/Images/Ap2.jpg);
+background-position: center;
+background-size: cover;
+width:50px;
+height:1000px;
+background-repeat: no-repeat;
+margin-left: -70px;
+}
+.container{
+  background-color:#0080ff;
+  width: 350px;
+  height:530px;
+  padding: 0.5rem 1.5rem;
+  margin-left: 260px;
+  font-size: 19px;
+  align-content: left;
+  padding-left: -120px;
+  margin-top: -10px;
+  
+ 
+}
+.para{
+	margin-left: -8px;
+	
+}
+span{
+	position:absolute;
+   color: red;
+}
+i
+{
+color: green;	
+}
+
+.column1{
+padding-left:204px;
+margin:100px;
+margin-left: 200px;
+margin-top: -450px;
+
+}
+#register{
+	height:545px;
+	width: 400px;
+	margin-top: -120px;
+	margin-left: -30px;
+}
+#reg{
+	height:150px;
+	width: 300px;
+	margin-left:150px;
+	margin-top: 150px;
+}

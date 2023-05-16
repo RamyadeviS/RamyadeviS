@@ -1,0 +1,153 @@
+
+.Container{
+  background-color:#d3af03;
+  width: 350px;
+  height:435px;
+  font-size:medium;
+  padding: 0.5rem 1.5rem;
+  margin-left: 535px;
+  margin-top: -497px;
+  
+}
+h1{
+	font-size: 30px; 
+	align-items: center;
+	margin-left: 40px;
+	margin-top: 40px;
+
+}
+.details{
+	font-size: 15px; 
+	align-items: right;
+	margin-left: -100px;
+	margin-top: 40px;
+	
+}
+.Pic img {
+	position:relative;
+	width:450px;
+	height:452px;
+	padding-bottom: 20px;
+	padding-top:3px;
+	margin-bottom: 9px;
+	bottom: 12px;
+	right: 37px;
+	padding-left: 125px;
+	margin-top: 90px;
+	
+}
+table{
+	margin-left: -80px;
+}
+
+.style{
+background-color:#d3af03;
+  width: 80px;
+  height:75px;
+  display: flex;
+  font-size:medium;
+  padding: 0.5rem 1.7rem;
+  margin-left: -30px;
+  padding-top: 10px;
+ 
+}
+h2{
+font-size: 30px; 
+	align-items: center;
+	margin-left: 40px;
+	margin-top: 230px;
+}
+
+body {
+background:url(/Images/BgPic.jpg);
+background-position: center;
+background-size: cover;
+width:90%;
+height:1150px;
+margin-left: 10px;
+background-repeat: no-repeat;
+	
+}
+th{
+	background-color:#008000;
+    width:90px;
+}
+
+button {
+	background-color:#82c0ff;
+	width:70px;
+    height:30px; 
+    border-radius: 10px;
+}
+a{
+	text-decoration: none;
+}
+.menu-bar {
+    background: #ff8080;
+    text-align: center;
+    width:1200px;
+    height: 110px;
+    margin-left: -30px;
+}
+.menu-bar ul{
+    display: inline-flex;
+    list-style: none;
+    color: #FFFFFF;
+}
+
+.menu-bar ul ol {
+    width: 170px;
+    margin: 15px;
+    padding: 19px;
+}
+
+.menu-bar ul ol a {
+    text-decoration: none;
+    color:#000000 ;
+}
+.active, .menu-bar ul ol:hover {
+background:#55aaff ;
+border-radius: 3px;
+height: 30px;
+}
+.menu-bar .fa {
+    margin-right: 7px;
+}
+
+.menu-bar ul ol:hover .sub-menu ul {
+    display: block;
+    margin: 10px;
+}
+.menu-bar ul ol:hover .sub-menu ul ol {
+width: 150px;
+padding: 10px;
+border-bottom: 1px dotted #fff;
+background: transparent;
+border-radius: 0%;
+text-align: left;
+}
+.menu-bar ul ol:hover .sub-menu ul ol:last-child {
+border-bottom: none;
+}
+.menu-bar ul ol:hover .sub-menu ul ol a:hover{
+    color: #ff8080;
+}
+
+.slick-headerrow-column {
+	background:teal;
+	text-overflow: clip;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.slick-headerrow-column input {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+
