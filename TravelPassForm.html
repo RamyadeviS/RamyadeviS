@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Travel Pass Form</title>
+
+<link rel="stylesheet" th:href="@{/CSS files/TravelPass.css}">
+<link rel ="stylesheet" th:href="@{/CSS files/Dashboard.css}">
+ 
+    <!-- <div class="session" th:text="${session.UserName}"></div>
+   <div class="session" th:text="${session.AadharNo}"></div>  -->
+   
+</head>
+<body>
+     <ol> <button><a th:href="@{/userDashboard}"><em class="fa-solid fa-table-list"></em>&nbsp;Back</a> </button> </ol>              
+
+<div class="menu-bar">
+        <ul>
+        
+          <ol><a th:href="@{/EpassApply}"><em class="fa-sharp fa-solid fa-car-side"></em>&nbsp;E-Pass Form</a></ol>
+         <ol><a th:href="@{/travelPassApply}"><em class="fa-solid fa-plane"></em>&nbsp;TravelPass Form</a></ol>        
+         <ol><a th:href="@{/userView}"><em class="fa-brands fa-wpforms"></em>&nbsp;Epass Status View</a></ol>
+         <ol><a th:href="@{/travelView}"><em class="fa-brands fa-wpforms"></em>&nbsp;Travel Pass Status View</a></ol>      
+         <ol><a th:href="@{/}"><em class="fa-solid fa-right-from-bracket"></em>&nbsp;Logout</a></ol>
+            </ul>
+            </div>
+            <div> <h1> &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;Travel Pass Form</h1> 
+        </div>
+<br><br>    
+  <header>
+ 
+  <div class="container">
+  <div class="left">
+  <form id="form" name="myform1" th:onsubmit="validateForm()" th:action="@{/travelForm}" th:object="${Apply}" method="post" enctype="multipart/form-data">
+    <br>
+    <div id=form-set style="display: flex;">
+	<div>
+							
+     <label>Applicant Name</label>
+     <input type="text" name="applicantName1" id="applicantName1"  th:value="${session.UserName}" readonly="readonly" required placeholder="Applicant Name">
+      <div class="session" ></div> 
+    <div id="zip">
+     
+     <label>       
+     Gender <br>
+     <Select name="Gender"th:field="*{gender1}">
+		<option th:fiel="*{gender1}" value="Female">Female</option>
+		<option th:field="*{gender1}" value="Male">Male</option>
+		<option th:field="*{gender1}" value="Transgender">Transgender</option>
+</Select>
+  
+    </label>
+   </div>  
+    <br><label>Father Name</label>
+    <input type="text" name="FatherName" id="FatherName" placeholder="Father Name" th:field="*{fatherName1}" required onkeyup="fatherNameValid()" pattern="^[A-Za-z ]*$" title="Father Name must contain uppercase and lowecase" >
+    <span id="fathername-validation"></span>
+
+     <br><br>
+ <label> Ticket Number </label>
+   <input type="text" name="TicketNo" id="TicketNo" placeholder="Ticket No" th:field="*{ticketNo}" required onkeyup="ticketNoValidation()" pattern="^[A-Z]{2,3}[0-9]{10}$" title="Ticket Number must be 13 digits" >
+        <span id="ticketNo-validation"></span>
+        <br>
+    
+  <br> <label>Date Of Birth</label> <input type="date" min="1950-01-01" max="2004-04-01" name="dob" placeholder="DOB"
+th:field="*{dateOfBirth}" id="dob" required>
+<br>   
+    <br>
+ <label>Aadhar Number</label> <br> <input type="number"
+name="aadharNumber" id="aadharNumber"  th:value="${session.AadharNo}" readonly="readonly" required>
+	 	
+							
+  <br><br>
+  <label> Mobile Number<label> <br><input type="tel" name="phoneNumber" id="MobileNo" placeholder="**********" th:field="*{phoneNumber}" th:value="${session.MobileNo}"
+required onkeyup="mobileNoValidation()" pattern="[6-9][0-9]{9}" title="Mobile No must be contain 10 digits and Mobile Number can start with numbers are 6,7,8,9" > 
+   <span id="mobileNo-validation"></span>
+     <br><br>
+      
+      
+      <label>  Source </label><br>
+    <input type="text" name="Source" id="Source" placeholder="Source" th:field="*{source}" onkeyup="sourceValid()" pattern="^[A-Za-z ]*$" title="Source must contain uppercase and lowecase" required>
+    <span id="source-validation"></span>
+    <br><br>    
+  
+</div>
+ &emsp;&emsp;&emsp; <div class="right">
+   &emsp;&emsp;<br>  
+   <label> Travel Date </label>
+ <input type="date" name="TravelDate" placeholder="TravelDate" id="TravelDate" th:field="*{fromDate}" required onchange="day()">
+     <br><br>
+  
+  <label> Return Date </label>
+  <input type="date" name="ReturnDate" placeholder="ReturnDate" id="ReturnDate" th:field="*{toDate}" required onchange="day()"> 
+  <br>  
+  
+   <div>
+   <label>
+   <br>&emsp;&emsp;Reason <br> <Select name="Reason"
+									th:field="*{reasons}" required>
+<option th:field="*{reasons}" value="Logistic Deliveries">logistic Deliveries</option>
+<option th:field="*{reasons}" value="Medical Supply">Medical
+Supply</option>
+<option th:field="*{reasons}" value="Essential Services">Essential
+Services</option>
+<option th:field="*{reasons}" value="Medical Emergency">Medical
+Emergency</option>
+<option th:field="*{reasons}" value="Government Duty">Government
+Duty</option>
+<option th:field="*{reasons}" value="Death Cause">Death
+Cause</option>
+<option th:field="*{reasons}" value="Wedding Function">Wedding
+Function</option>
+</Select>
+ </label>
+ </div>     
+     <br>     
+ &emsp;&emsp;<label>No Of Passengers</label><br> <input type="text"
+								name="NoOfPassengers" id="NoOfPassengers"
+								placeholder="No Of Passengers" th:field="*{passengers}"
+								required onkeyup="passengersValidation()" pattern="([0-4]+)" title="Passengers are 1 to 4 members only allowed" > <span
+								id="passengers-validation"></span>
+  <br>
+  <br>
+  
+  <label>
+  &emsp;Vaccination Certificate &nbsp;(2 Dose)<br> <select
+								name="VaccinationCertificate" id="VaccinationCertificate"
+								th:field="*{covidCertificate}" onkeyup="vaccinationCertificateValid()" required>
+								<option th:field="*{covidCertificate}" value="Yes" required>Yes</option>
+								<option th:field="*{covidCertificate}" value="No">No</option>
+								</select>
+								<span id="vaccinationCertificate-validation"></span> <br> <br> <br>
+								</label>
+								
+							<label> Upload Image<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br> <input
+								type="file" id="image" name="VaccineImage" required><br><br>
+								<br>&emsp;&emsp; <button type="Submit" value="Go back!"
+								onclick="history.back()">Go Back </button>&nbsp;
+ &emsp; <button type="submit" id="btn" >&nbsp;Submit</button>
+   </label>
+</div>
+</div>
+   </form>
+   </div>  
+</div>
+	</header>
+<div class="column3">
+<h4>All people entering TamilNadu from other 
+countries should Apply in the E-pass.</h4>
+
+<img alt="travel" th:src="@{\Images\Travel1.jpg}" id="travel">
+  </div>
+<script>
+            var dateInput = document.getElementById("TravelDate");
+            var today = new Date();
+            var minDate = today.toISOString().split('T')[0];
+            dateInput.setAttribute("min", minDate);
+            var oneMonthLater = new Date(today.getFullYear(),
+                    today.getMonth() +8 , today.getDate() + 31);
+            var maxDate = oneMonthLater.toISOString().split('T')[0];
+            dateInput.setAttribute("max", maxDate);
+        </script>
+
+    <script type="text/javascript">
+
+	// get the select element and the button element
+const select = document.getElementById('VaccinationCertificate');
+const button = document.getElementById('btn');
+
+// add an event listener to the select element
+select.addEventListener('change', function() {
+  // get the selected value
+  const selectedValue = select.value;
+  
+  // if the selected value is "no", disable the button
+  if (selectedValue === 'No') {
+    button.disabled = true;
+  } 
+else {
+    button.disabled = false;
+  }
+
+});
+</script>
+<script type="text/javascript"
+		th:src="@{/Java Script/TravelDate.js}"></script>
+
+<script type="text/javascript" th:src="@{/Java Script/ScriptValidation.js}"></script>  
+     
+</body>
+</html>

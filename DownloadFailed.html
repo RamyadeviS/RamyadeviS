@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Status</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS files/EpassReject.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="popup" id="popUp">
+            <img th:src="@{/Images/Reject1.png}" alt="Checked">
+				
+            <h2>Your Status is not Approved</h2>
+            <br>
+ 		
+<button type="button" th:onclick="location.href='/userDashboard'">Next</button>
+  </div>
+    </div>
+</body>
+</html>

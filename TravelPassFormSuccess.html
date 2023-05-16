@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>TravelPass Form Success</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS files/TravelPassFormSuccess.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="popup" id="popUp">
+            <img th:src="@{/Images/EppasFormSuccess1.png}" alt="Checked">
+             <h4 th:text="${session.UserName}" readonly="readonly"></h4>
+				
+            <h3>Your Form Was <br>Successfully Submitted.!</h3>
+            <br>
+ 		
+<button type="button" th:onclick="location.href='/userDashboard'">Next</button>
+  </div>
+    </div>
+</body>
+</html>

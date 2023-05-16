@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Image Approve</title>
+</head>
+<body>
+<th:block th:each="images: ${travelPass}">
+	<img alt="" th:src="'data:image/jpg;base64,' + ${images.imagePath1}" style="width: 500px; height: 500px;">
+		</th:block>
+</body>
+</html>

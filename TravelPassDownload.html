@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="ISO-8859-1">
+<!-- <ol>
+ <a th:href="@{/travelView}"><em class="fa-solid fa-table-list"></em>&nbsp;Back</a> <br><br>
+	</ol> -->
+<title>TN Travel Pass</title>
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+<link rel="stylesheet" th:href="@{/CSS files/TravelPassDownload.css}">
+</head>
+<body>
+<div>
+   <ul class="active"><a th:href="@{/userView}">Back</a>
+   </div>
+<div id="contentToPrint">
+    <form th:action="@{/getTravelPass}" method="get" th:object="${getTravel}">
+        <div class="container">
+          <div> <img alt="travel" th:src="@{\Images\TNEpass2.jpg}" id="travel">
+  <h3>Tamilnadu Covid-19 Travel Pass </h3>
+  </div> 
+         <br> <label for="application Number"> Application Number</label>&emsp;
+                    <input type="text" class="form-control" id="application Number" placeholder="Enter Application Number" name="applicationNo"  th:value="${session.Application_Number}" readonly="readonly" required>
+                 <br>
+                    <label for="aadharNo"> Aadhar Number</label>&emsp;&emsp;&emsp;
+                    <input type="text" class="form-control" id="aadharNo" placeholder="Enter Aadhar Number"   th:value="${session.AadharNo}" readonly="readonly" required>
+                 <br>
+                   
+                    <label for="userName">User Name</label>&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
+                    <input type="text" class="form-control" id="userName" placeholder="Enter User Name" name="applicantName" th:value="${session.ApplicantName}" readonly="readonly" required>
+                 <br>
+                      
+                  
+                    <label for="ticketNo">Ticket Number</label>&emsp;&emsp;&emsp;&nbsp;
+                    <input type="text" class="form-control" id="ticketNo" placeholder="Enter Ticket Number" name="ticketNo" th:value="${session.Ticket_No}"  readonly="readonly" required>
+                   <br>
+            
+                    <label for="Reason">Purpose Of Travel</label>&emsp;&emsp;
+                    <input type="text" class="form-control" id="email" placeholder="Enter Reasons" name="reason" th:value="${session.Reasons}" readonly="readonly" required>
+                    <br>
+
+                     <label for="Passengers">No Of Passengers</label>&emsp;&emsp;
+                    <input type="text" class="form-control" id="Passengers" placeholder="Enter Passengers" name="noOfPassengers" th:value="${session.Passengers}" readonly="readonly" required>
+                <br>
+                
+
+                    <label for="travelDate">From Date</label>&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
+                    <input type="text" class="form-control" id="travelDate" placeholder="Enter From Date" name="fromDate" th:value="${session.From_Date}" readonly="readonly" required>
+                <br> 
+                
+                    <label for="returnDate">To Date</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" id="returnDate" placeholder="Enter To Date" name="toDate" th:value="${session.To_Date}"readonly="readonly" required >
+                <br> 
+      
+                    <label for="source">Source</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <input type="text" class="form-control" id="source" placeholder="Enter Source" name="source" th:value="${session.Source}" readonly="readonly" required>
+                  <br> 
+ 
+                    <label for="destination">Destination</label>&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" id="destination" placeholder="Enter Destination" name="destination" th:value="${session.Destination}" readonly="readonly" required>
+                    <br> 
+                   
+                     <label for="mobileNo">Mobile Number</label>&emsp;&emsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" id="mobileNo" placeholder="Enter Mobile Number" name="mobileNo" th:value="${session.MobileNo}" readonly="readonly" required>
+                <br>
+        </div>
+      </form>
+</div>    
+       
+ <div class="form-actions top">
+                            <div class="row" style="margin-left: 460PX;">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button class="btnblue" type="button" onclick="printContent('contentToPrint')" style="width: 150px;">
+                                        download
+                                    </button>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+ <script >
+ function printContent(el) {
+     var restorepage = document.body.innerHTML;
+     var printcontent = document.getElementById(el).innerHTML;
+     document.body.innerHTML = printcontent;
+     window.print();
+     document.body.innerHTML = restorepage;
+ }
+ </script>
+</body>
+</html>

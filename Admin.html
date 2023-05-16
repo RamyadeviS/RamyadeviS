@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Login</title>
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+<link rel="stylesheet" th:href="@{/CSS files/AdminLogin.css}">
+</head>
+<body>
+    <form th:action="@{/adminLogin}" method="Get" th:object="${admin}">
+<br><br><br><br><br>
+  <ul class="active"><a th:href="@{/}"><em class="fa-solid fa-house-circle-exclamation"></em></a>
+  </ul>
+    <div class="container">
+   <h1>  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Admin Login</h1>
+     <div class="left"><br><br><br><br><br><br><br>
+                     
+  <img alt="signIn" th:src="@{\Images\adminLogin.gif}" id="signIn">
+      </div>
+        <div class="right">
+                    <div class="formBox">
+                        <form>
+   <label>Mail Id</label>
+    <input type="text" placeholder="Enter Mail Id" name="mailId" id="mailId" th:field="*{mailId}"required />
+<br>
+<label>Password</label>
+    <input type="Password" placeholder="Enter Password" name="password" id="password" th:field="*{password}"required />
+<br>
+  <br>
+  <br>
+   <input type="Submit" value="Sign In ">
+  
+    </div>
+    </div>
+    </div>
+    </form><br><br>
+</body>
+</html>

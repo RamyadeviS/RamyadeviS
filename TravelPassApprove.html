@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Approve</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS files/EpassFormSuccess.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="popup" id="popUp">
+            <img th:src="@{/Images/EppasFormSuccess1.png}" alt="Checked">
+             <h4 th:text="${session.UserName}" readonly="readonly"></h4>
+				
+            <h1>Approved</h1>
+            <br>
+ 		
+<button onclick="history.back()"><em class="fa-sharp fa-solid fa-backward-fast">&nbsp;&nbsp;</em>Go Back</button>
+  </div>
+    </div>
+</body>
+</html>

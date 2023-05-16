@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width,
+				initial-scale=1.0">
+<title>Admin DashBoard</title>
+<link rel="stylesheet" th:href="style.css">
+<link rel="stylesheet" th:href="@{/CSS files/AdminDashBoard.css}">
+<link rel="stylesheet"
+	th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+
+
+<!-- slick grid start -->
+
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css}"
+	type="text/css" />
+
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}"
+	type="text/css" />
+
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/controls/slick.columnpicker.css}" type="text/css" />
+
+
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/css/smoothness/GridMenu.css}">
+
+<style>
+.slick-headerrow-column {
+	background: #87ceeb;
+	text-overflow: clip;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.slick-headerrow-column input {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h1 {
+	margin-left: 600px;
+}
+</style>
+
+<!-- slick grid end -->
+
+<!-- slick grid start -->
+
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css}"
+	type="text/css" />
+
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}"
+	type="text/css" />
+
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/controls/slick.columnpicker.css}" type="text/css" />
+
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}"
+	type="text/css" />
+
+<style>
+.slick-headerrow-column {
+	background: blue;
+	text-overflow: clip;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.slick-headerrow-column input {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h1 {
+	margin-left: 600px;
+}
+</style>
+
+<!-- slick grid end -->
+
+
+
+</head>
+
+<body>
+
+	<!-- for header part -->
+	<header>
+		<div class="epass">
+			<img alt="TamilnaduLogo" th:src="@{/Images/TamilnaduLogo.jpg}">
+		</div>
+		<div class="logosec">
+			<div class="logo">E-Pass Application</div>
+		</div>
+		</div>
+
+		<div class="message">
+			<div class="circle"></div>
+			<img
+				src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
+				class="icn" alt="">
+			<div class="dp">
+				<img
+					src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+					class="dpicn" alt="dp">
+			</div>
+		</div>
+
+	</header>
+
+	<div class="main-container">
+		<div class="navcontainer">
+			<nav class="nav">
+				<div class="nav-upper-options">
+					<div class="nav-option option1" >
+						<img
+							src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+							class="nav-img" alt="Admin Dashboard">
+						<a th:href="@{/adminDashboard}"><h3>Admin Dashboard</h3></a>
+					</div>
+
+					<div class="option2 nav-option" id="EpassBtn">
+						<img
+							src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+							class="nav-img" alt="articles">
+						<h3>
+							E-Pass Form <br>&emsp;&emsp;List
+						</h3>
+					</div>
+
+					<div class="nav-option option3" id="travelPassBtn">
+						<img
+							src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+							class="nav-img" alt="report">
+							<h3>Travel Pass Form List</h3>
+					</div>
+
+					<div class="nav-option logout">
+						<img
+							src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+							class="nav-img" alt="logout"> <a th:href="@{/}">
+							<h3>Logout</h3>
+						</a>
+					</div>
+
+				</div>
+			</nav>
+		</div>
+		<div class="main">
+
+
+			<div class="box-container">
+
+				<div class="box box1">
+					<div class="text">
+
+						<h2 class="topic">
+							<strong><a th:href="@{/listEpassForm}"></strong>E-Pass Apply
+							Count
+						</h2>
+						<strong><a th:href="@{/listEpassForm}"></strong>
+						<p th:text="${Epass_count}"></p>
+						</a>
+					</div>
+
+					<img alt="ePassCount" src="/Images/ListImg.jpg" id="ePassCount">
+
+				</div>
+
+				<div class="box box2">
+					<div class="text">
+						<h2 class="topic">
+							<strong><a th:href="@{/listTravelPass}"></strong>Travel Pass
+							Apply Count
+						</h2>
+						<strong><a th:href="@{/listTravelPass}"></strong>
+						<p th:text="${TravelPass_count}"></p>
+						</a>
+					</div>
+					<img alt="travelPassCount" src="/Images/List.png"
+						id="travelPassCount">
+
+
+				</div>
+
+				<div class="box box3">
+					<div class="text">
+						<h2 class="topic">
+							<strong><a th:href="@{/listEpassForm}"></strong>E-Pass
+							Approve List
+						</h2>
+						<strong><a th:href="@{/epassApproveList}"></strong>
+						<p th:text="${TotalApprove_count}"></p>
+						</a>
+					</div>
+					<img alt="ePassApprove" src="/Images/SuccessLogo.png  "
+						id="ePassApprove">
+
+				</div>
+
+				<div class="box box4">
+					<div class="text">
+						<h2 class="topic">
+							<strong><a th:href="@{/listEpassForm}"></strong>E-Pass Reject
+							List
+						</h2>
+						<strong><a th:href="@{/epassRejectList}"></strong>
+						<p th:text="${TotalReject_count}"></p>
+						</a>
+					</div>
+					<img alt="ePassReject" src="/Images/Reject1.png" id="ePassReject">
+				</div>
+
+				<div class="box box5">
+					<div class="text">
+						<h2 class="topic">
+							<strong><a th:href="@{/listEpassForm}"></strong>E-Pass
+							Pending List
+						</h2>
+						<strong><a th:href="@{/epassPendingList}"></strong>
+						<p th:text="${TotalPending_count}"></p>
+						</a>
+					</div>
+					<img alt="ePassPending" src="/Images/PendingImg.png "
+						id="ePassPending">
+
+				</div>
+
+				<div class="box box6">
+					<div class="text">
+						<h2 class="topic">
+							<strong><a th:href="@{/listTravelPass}"></strong>Travel Pass
+							Approve List
+						</h2>
+						<strong><a th:href="@{/travelPassApprove}"></strong>
+						<p th:text="${TotalApprove_count1}"></p>
+						</a>
+					</div>
+					<img alt="travelPassApprove" src="/Images/SuccessLogo.png"
+						id="travelPassApprove">
+				</div>
+
+				<div class="box box7">
+					<div class="text">
+						<h2 class="topic">
+							<strong><a th:href="@{/listTravelPass}"></strong> Travel Pass
+							Reject List
+						</h2>
+						<strong><a th:href="@{/travelPassReject}"></strong>
+						<p th:text="${TotalReject_count1}"></p>
+						</a>
+					</div>
+
+					<img alt="travelPassReject" src="/Images/Reject1.png"
+						id="travelPassReject">
+				</div>
+				<div class="box box8">
+					<div class="text">
+						<h2 class="topic">
+							<strong><a th:href="@{/listTravelPass}"></strong>Travel Pass
+							Pending List
+						</h2>
+						<strong><a th:href="@{/travelPassPending}"></strong>
+						<p th:text="${TotalPending_count1}"></p>
+						</a>
+					</div>
+					<img alt="travelPassPending" src="/Images/PendingImg.png "
+						id="travelPassPending">
+
+				</div>
+				<div class="box box9">
+					<div class="text">
+						<h2 class="topic">Total User Count</h2>
+						<p th:text="${TotalUser_count}">
+							<strong></strong>
+						</p>
+					</div>
+					<img alt="totalCount" src="/Images/TotalImg1.jpg" id="totalCount">
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<script src="./index.js"></script>
+
+
+	<div style="position: relative; margin-top: 50px;">
+
+		<div
+			style="width: 1199px; width: 860px; margin-left: 250px; margin-top: -415px; position: absolute; z-index: 20000;">
+
+			<div id="myGrid" style="width: 100%; height: 360px; display: none;"></div>
+
+		</div>
+
+	</div>
+	<form
+		style="margin-left: 300px; margin-top: -30px; position: absolute; z-index: 200; display: none;"
+		th:action="@{/update}" method="get" th:object="${epass}"
+		id="epassApproval">
+		<button id="approve" type="submit" "style=color:red;">Approve</button>
+		<button id="reject" formaction="/reject" type="submit">Reject</button>
+		<input type="hidden" id="leaveIdList" name="applicationNo">
+	</form>
+	<input type="hidden" id="viewRequest" th:value="${userList}">
+
+	<div th:attr="data-myvar=${userList}" id="myDiv"></div>
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+	<script th:src="@{/SlickGrid/lib/firebugx.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.checkboxselectcolumn.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.autotooltips.js}"></script>
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.cellrangedecorator.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.cellcopymanager.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.cellselectionmodel.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.rowselectionmodel.js}"></script>
+	<script th:src="@{/SlickGrid/controls/slick.columnpicker.js}"></script>
+	<script th:src="@{/SlickGrid/slick.formatters.js}"></script>
+	<script th:src="@{/SlickGrid/slick.editors.js}"></script>
+	<script th:src="@{/SlickGrid/controls/slick.pager.js}"></script>
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.cellrangeselector.js}"></script>
+	<script th:src="@{/SlickGrid/Interactions.js}"></script>
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+	<script type="text/javascript" th:src="@{/Java Script/EpassAction.js}"></script>
+	<script type="text/javascript">
+    
+    EpassActionList();
+    </script>
+	<script type="text/javascript">
+    document.getElementById('approve').onclick = function() {  
+          var markedCheckbox = document.getElementsByName('checkName');
+          var inputField= document.getElementById('leaveIdList');
+          var value=[];
+          for (var checkbox of markedCheckbox) {  
+            if (checkbox.checked){
+                
+            console.log(value);
+                value.push(checkbox.value);
+              document.body.append(checkbox.value + ',');  
+            }
+          }  
+                inputField.value=value;
+        }  
+    document.getElementById('reject').onclick = function() {  
+          var markedCheckbox = document.getElementsByName('checkName');
+          var inputField= document.getElementById('leaveIdList');
+          var value=[];
+          for (var checkbox of markedCheckbox) {  
+            if (checkbox.checked){
+                
+            console.log(value);
+                value.push(checkbox.value);
+              document.body.append(checkbox.value + ',');  
+            }
+          }  
+                inputField.value=value;
+        } 
+    </script>
+
+	<div style="position: relative; margin-top: 50px;">
+
+		<div
+			style="width: 1199px; width: 860px; margin-left: 250px; margin-top: -415px; position: absolute; z-index: 20000;">
+
+			<div id="myGrid1" style="width: 100%; height: 360px; display: none;"></div>
+
+		</div>
+
+	</div>
+	<form th:action="@{/approve}" method="get" th:object="${travel}"
+		id="travelApproval"
+		style="margin-left: 300px; margin-top: -50px; position: absolute; z-index: 200; display: none;">
+		<button id="btn" type="submit">Approve</button>
+		<button id="Epass" formaction="/travelReject" type="submit">Reject</button>
+		<input type="hidden" id="travelPassList" name="applicationNumber">
+	</form>
+	<input type="text" id="view" th:value="${viewList}">
+
+	<div th:attr="data-myvar=${viewList}" id="myDiv"></div>
+
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+	<script th:src="@{/SlickGrid/plugins/slick.rowselectionmodel.js}"></script>
+	<script th:src="@{/SlickGrid/controls/slick.columnpicker.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+
+	<script th:src="@{/SlickGrid/controls/slick.pager.js}"></script>
+
+	<script th:src="@{/SlickGrid/Interactions.js}"></script>
+
+
+
+	<script type="text/javascript" th:src="@{/Java Script/TravelAction.js}"></script>
+	<script type="text/javascript">
+   
+	travelPassActionList();
+    </script>
+	<script type="text/javascript">
+    document.getElementById('btn').onclick = function() {  
+          var markedCheckbox = document.getElementsByName('checkName');
+          var inputField= document.getElementById('travelPassList');
+          var value=[];
+          for (var checkbox of markedCheckbox) {  
+            if (checkbox.checked){
+                
+            console.log(value);
+                value.push(checkbox.value);
+              document.body.append(checkbox.value + ',');  
+            }
+          }  
+                inputField.value=value;
+        }  
+    document.getElementById('Epass').onclick = function() {  
+          var markedCheckbox = document.getElementsByName('checkName');
+          var inputField= document.getElementById('travelPassList');
+          var value=[];
+          for (var checkbox of markedCheckbox) {  
+            if (checkbox.checked){
+                
+            console.log(value);
+                value.push(checkbox.value);
+              document.body.append(checkbox.value + ',');  
+            }
+          }  
+                inputField.value=value;
+        } 
+    </script>
+
+	<!-- calling script files -->
+	<script type="text/javascript"
+		th:src="@{/Java Script/AdminDashboard.js}"></script>
+
+</body>
+</html>

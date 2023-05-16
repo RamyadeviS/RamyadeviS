@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Menu</title>
+    <link rel="stylesheet" th:href="@{/CSS files/UserDashBoard.css}">
+     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+     
+</head>
+<body>
+<!-- for header part -->
+	<header>
+        <div class="epass">
+        <img alt="TamilnaduLogo" th:src="@{/Images/TamilnaduLogo.jpg}">
+    </div>
+		<div class="logosec">
+			<div class="logo">E-Pass Application</div>
+		</div>
+ <div class="SessionName">
+    <div class="session">
+           <p th:text="${session.UserName}"></p>
+        </div>   
+        </div>
+	</header>
+
+    <div class="navigation">
+        <ul>
+            
+          <li>
+                <a th:href="@{#}">
+                    <span class="icon"><em class="fa-solid fa-boxes-stacked"></em></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            
+             <li>
+               
+                <a th:href="@{/EpassApply}">
+                    <span class="icon"><em class="fa-sharp fa-solid fa-car-side"></em></span>
+                    <span class="title">E-Pass Form</span>
+                </a>
+            </li>
+                
+            <li>
+                <a th:href="@{/travelPassApply}">
+                    <span class="icon"><em class="fa-solid fa-plane"></em></span>
+                    <span class="title">Travel Pass Form</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/userView}">
+                    <span class="icon"><em class="fa-brands fa-wpforms"></em></span>
+                    <span class="title">Epass Status View</span>
+                </a>
+                <div class="sub-menu-1">
+                <ul>
+                <li><a th:href=@{/getEpass}>Download E-Pass</a></li>
+                </ul>
+                </div>
+            </li>
+            <li>
+                <a th:href="@{/travelView}">
+                    <span class="icon"><em class="fa-brands fa-wpforms"></em>&nbsp;</span>
+                    <span class="title">Travel Pass Status View</span>
+                </a>
+            </li>
+             <li>
+                <a th:href="@{/profile}">
+                    <span class="icon"><em class="fa-solid fa-id-badge"></em></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/epassHistory}">
+                    <span class="icon"><em class="fa-solid fa-clock-rotate-left"></em></span>
+                    <span class="title">History</span>
+                </a>
+            </li>
+            
+            <li>
+                <a th:href="@{/}">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Logout</span>
+                </a>
+            </li>
+            
+        </ul>
+        
+        <div class="toggle"></div>
+    </div>
+
+    <script type="module" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js}"></script>
+    <script nomodule th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js}"></script>
+
+    <script>
+        let navigation = document.querySelector('.navigation');
+        let toggle = document.querySelector('.toggle');
+        toggle.onclick = function(){
+            navigation.classList.toggle('active')
+        }
+    </script>
+        
+         <div class="Pic" >
+  <img alt="" th:src="@{\Images\EpassTamilNadu.webp}" id="picture">
+  </div>
+  
+</body>
+</html>

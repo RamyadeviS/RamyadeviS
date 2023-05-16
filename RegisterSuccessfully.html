@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Register Successful</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS files/RegisterSuccessfully.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="popup" id="popUp">
+            <img th:src="@{/Images/SuccessLogo.png}" alt="Checked">
+            <div><img alt="image" th:src="@{\Images\RegisterSuccess.jpg}" id="Congrates"></div>
+     
+            <h2>Register Sucessfully</h2>
+               <p>Welcome!!</p><br>
+ <h4 th:text="${session.UserName}" readonly="readonly"></h4>
+ <p>Congratulations,your Account has <br>been successfully created.<br>Thanks!</p>
+              
+<button type="button" th:onclick="location.href='/userDashboard'">Next</button>
+  </div>
+    </div>
+</body>
+</html>

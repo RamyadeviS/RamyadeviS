@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" th:href="@{/CSS files/TravelList.css}">
+
+<button onclick="history.back()"><em class="fa-sharp fa-solid fa-backward-fast">&nbsp;&nbsp;</em>Go Back</button>
+
+	<h1>&emsp;Travel List View</h1>
+	
+<title>Travel Pass List</title>
+
+<!-- slick grid start -->
+
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css}"
+	type="text/css" />
+
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}"
+	type="text/css" />
+
+<link rel="stylesheet" th:href="@{/SlickGrid/controls/slick.columnpicker.css}" type="text/css" />
+
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}"
+	type="text/css" />
+
+<style>
+.slick-headerrow-column {
+	background:blue;
+	text-overflow: clip;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.slick-headerrow-column input {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h1{
+margin-left: 600px;
+}
+</style>
+
+<!-- slick grid end -->
+
+</head>
+
+<body>
+
+	<div style="position: relative; margin-top: 50px;">
+
+		<div style="width:1400px;">
+
+			<div id="myGrid1" style="width: 100%; height: 800px;"></div>
+
+		</div>
+
+	</div>
+	<form th:action="@{/approve}" method="get" th:object="${travel}">
+        <button id="btn" type="submit">Approve</button>
+        <button id="Epass" formaction="/travelReject" type="submit">Reject</button>
+        <input type="hidden" id="leaveIdList" th:field="*{applicationNumber}">
+    </form>
+    <input type="text" id="view" th:value="${viewList}">
+  
+	<div th:attr="data-myvar=${viewList}" id="myDiv"></div>
+
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+<script th:src="@{/SlickGrid/plugins/slick.rowselectionmodel.js}"></script>
+<script th:src="@{/SlickGrid/controls/slick.columnpicker.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+	
+	 <script th:src="@{/SlickGrid/controls/slick.pager.js}"></script>
+
+    <script th:src="@{/SlickGrid/Interactions.js}"></script>
+    
+	
+
+<script type="text/javascript"
+        th:src="@{/Java Script/TravelAction.js}"></script>
+    <script type="text/javascript">
+    travelPassActionList();
+    </script>
+    <script type="text/javascript">
+    document.getElementById('btn').onclick = function() {  
+          var markedCheckbox = document.getElementsByName('checkName');
+          var inputField= document.getElementById('leaveIdList');
+          var value=[];
+          for (var checkbox of markedCheckbox) {  
+            if (checkbox.checked){
+                
+            console.log(value);
+                value.push(checkbox.value);
+              document.body.append(checkbox.value + ',');  
+            }
+          }  
+                inputField.value=value;
+        }  
+    document.getElementById('Epass').onclick = function() {  
+          var markedCheckbox = document.getElementsByName('checkName');
+          var inputField= document.getElementById('leaveIdList');
+          var value=[];
+          for (var checkbox of markedCheckbox) {  
+            if (checkbox.checked){
+                
+            console.log(value);
+                value.push(checkbox.value);
+              document.body.append(checkbox.value + ',');  
+            }
+          }  
+                inputField.value=value;
+        } 
+    </script>
+	
+	
+</body>
+
+</html>
+

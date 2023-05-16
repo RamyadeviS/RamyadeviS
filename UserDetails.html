@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="ISO-8859-1">
+ <title>Register Form </title>
+ <link rel="stylesheet" th:href="@{/CSS files/Register.css}">
+ <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+ 
+</head>
+<body>
+
+<ul class="active">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a th:href="@{/}"><em class="fa-solid fa-house-circle-exclamation"></em></a>
+ </ul>
+<div class="container">
+
+    <form  id="form" name="myform1" onsubmit="validateForm()" th:action="@{/register}" method="get" th:object="${sign}">
+<h1> Registration Form</h1>
+  <div class="para">
+  <label>Aadhar No&emsp;: </label>
+    <input type="text" name="aadharNo" id="aadharNo" placeholder="Aadhar No" th:field="*{aadharNo}" required  onkeyup="aadharNoValidation()" />  
+    
+<!--     pattern="^[^0-1]\\d{11}$" title="AadharNo must be contain 12 digits and Aadhar Number do not start with numbers are 0,1" 
+ -->  
+    <div> <span id="aadharNo-validation"></span></div>
+  
+   <br> <br>
+  <label>User Name&emsp;:</label>
+    <input type="text" name="userName" id="userName" placeholder="User Name" th:field="*{userName}" required onkeyup="nameValid()" pattern="^[A-Za-z ]*$" title="Name must contain uppercase and lowecase" />
+         <div><span id="name-validation" color:red;> </span>  </div>
+       
+        <br> <br>
+   <label>Mail Id&emsp;&emsp;&nbsp;&nbsp;: </label>
+      <input type="text" name="mailId" id="mailId" placeholder="Mail Id" th:field="*{mailId}" required onkeyup="mailIdValidation()" pattern="^[a-zA-Z0-9+.-]+@[a-zA-Z+.-]+$" title="Invalid mail id!! it should contain only alphabets after @ symbol" />
+      <div>   <span id="mailId-validation" color:red;> </span>  </div>
+    
+     <br> <br>
+ <label> Password &emsp;&nbsp; :</label>
+    <input type="password" name="password" id="password" placeholder="Password"  th:field="*{password}" required onkeyup="passwordValidation()"pattern=".[A-Za-z0-9]{1,}[@#$!%^&?><]{1,}.*" title="Password Should be more than 6 characters and @ Symbol is must" />
+    <div>  <span id="password-validation" color:red;> </span>  </div>
+       
+  <br> <br>
+   <label>Mobile No &emsp;:</label>
+    <input type="tel" name="mobileNo" id="mobileNo" placeholder="Mobile No" th:field="*{mobileNo}" onkeyup="mobileNoValidation()"pattern="[6-9][0-9]{9}" title="Mobile No must be contain 10 digits and Mobile Number can start with numbers are 6,7,8,9" />
+     <div>  <span id="mobileNo-validation" color:red;> </div>
+    
+ <br> <br>
+    <input type="Checkbox" name="agree" required>
+    <label for="agree">I agree to all the conditions of the Form</label>
+    <br><br>
+    <input type="Submit" value="Cancel" onclick="history.back()"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="Submit">Submit</button><br><br>
+     Already have an account?<a th:href="@{/userLoginEpass}">&nbsp;Login</a> <br><br>
+    
+    </div>
+   <div class="column1">
+  <img alt="register" th:src="@{\Images\Reg1.gif}" id="register">
+  </div>
+    </form>  
+          <br><br><br>
+ <script type="text/javascript">
+ var nameError = document.getElementById("name-validation"); 
+ var aadharNoError =document.getElementById("aadharNo-validation"); 
+ var mobileNoError=document.getElementById("mobileNo-validation");
+ var mailIdError=document.getElementById("mailId-validation");
+ var passwordError=document.getElementById("password-validation");
+ 
+ 
+ function aadharNoValidation() { 
+		var aadharNo=document.getElementById("aadharNo").value; 
+		let aadharNoValid ="^[^0-1]\\d{11}$";
+		if(aadharNo == 0){
+			text = 'Aadhar Number is required';
+			aadharNoError.innerHTML = text;
+			return false;
+		}
+		if (aadharNo.length < 12 ||aadharNo.length >12 ) {
+	        text='aadharNo must be contain 12 digits';
+	        aadharNoError.innerHTML = text;
+			return false;
+	          }
+
+		if(!aadharNo.match(aadharNoValid)){
+			text = 'Aadhar Number do not start with numbers are 0,1';
+			aadharNoError.innerHTML = text;
+			return false;
+		}
+		aadharNoError.innerHTML = '<i class="fa-regular"></i>';
+		return true;
+	}
+ 
+ function nameValid(){
+		var name = document.getElementById("userName").value; 
+		let nameValidation = '^[A-Za-z ]*$'; 
+		if(name == 0  || name.trim() == ""){ 
+			text ='Name is required'; 
+			nameError.innerHTML = text; 
+			return false; 
+		} 
+		if(name.length < 3){
+			text = 'Name should be greater than 3 characters';
+			nameError.innerHTML = text; 
+			return false; 
+		}
+		if(!name.match(nameValidation)){ 
+			  text = 'Name must contain uppercase and lowecase'; 
+			nameError.innerHTML = text;  
+			return false; 
+		}
+		nameError.innerHTML ='<i class="fa-regular"></i>'; 
+		return true; 
+	}
+ function mobileNoValidation() { 
+		var mobileNo=document.getElementById("mobileNo").value; 
+		let mobileNoValid ="[6-9][0-9]{9}";
+		if(mobileNo == 0){
+			text = 'Mobile Number is required';
+			mobileNoError.innerHTML = text;
+			return false;
+		}
+		if (mobileNo.length < 10 ||mobileNo.length >10) {
+	        text='Mobile No must be contain 10 digits';
+	        mobileNoError.innerHTML = text;
+			return false;
+	          }
+
+		if(!mobileNo.match(mobileNoValid)){
+			text = 'Mobile Number can start with numbers <br> are 6,7,8,9';
+			mobileNoError.innerHTML = text;
+			return false;
+		}
+		mobileNoError.innerHTML ='<i class="fa-regular"></i>';
+		return true;
+	}
+	
+ function mailIdValidation() { 
+		var mailId=document.getElementById("mailId").value; 
+		let mailIdValid ="^[a-zA-Z0-9+.-]+@[a-zA-Z+.-]+$";
+		if(mailId == 0){
+			text = 'Mail Id is required';
+			mailIdError.innerHTML = text;
+			return false;
+		}
+		
+		if(!mailId.match(mailIdValid)){
+			text='Invalid mail id!! it should contain only <br>alphabets after @ symbol';    
+			mailIdError.innerHTML = text;
+			return false;
+		}
+		mailIdError.innerHTML ='<i class="fa-regular"></i>';
+		return true;
+	}
+ 
+ function passwordValidation() { 
+		var password=document.getElementById("password").value; 
+		let passwordValid = '.[A-Za-z0-9]{1,}[@#$!%^&?><]{1,}.*';
+
+		if(password == 0  || password.trim() == ""){ 
+			text ='Password is required'; 
+			passwordError.innerHTML = text; 
+			return false; 
+		} 
+		if(!password.match(passwordValid)){
+	        text = "Password Should be more than 6 characters <br>and special Characters is must";
+			passwordError.innerHTML = text;
+			return false;
+		}
+		passwordError.innerHTML ='<i class="fa-regular "></i>';
+		return true;
+	}
+
+ </script>
+</body>
+</html>

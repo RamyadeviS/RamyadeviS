@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<ol>
+<button onclick="history.back()"><em class="fa-solid fa-table-list"></em>&nbsp;Back</a></button>
+	</ol>
+<title>Certficate View</title>
+</head>
+<body>
+<th:block th:each="images: ${travelPass}">
+	<img alt="" th:src="'data:image/jpg;base64,' + ${images.imagePath1}" style="width: 500px; height: 500px;">
+		</th:block>
+</body>
+</html>

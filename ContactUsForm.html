@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact Us</title>
+<link rel ="stylesheet" th:href="@{/CSS files/Contact.css}">
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css}">
+</head>
+<body>
+   <ul class="active"><a th:href="@{/}"><em  class="fa-solid fa-house-circle-exclamation"></em></a>
+ </ul>
+<div class="container">
+<div class="row">
+  <div class="column1">
+ <br> <h3>Send us a message</h3><br><br>
+  <label>Name</label><br>
+  <input type="text" name="Name" id="Name" placeholder="Enter Your Name" required ><br><br>
+   
+  <label>Email</label><br>
+    <input type="text" name="Email" id="Email" placeholder="Enter Your Email" required><br><br>
+   
+  <label>Message</label><br>
+  <input type="Message" name="Message" id="Message" placeholder="Enter Your Message" required><br><br>
+   <br><input type="Submit" value="Send Message" onclick="history.back()"> &nbsp;&nbsp;&nbsp;
+   </div>
+  
+  <div class="column2">
+  <br><h3>&emsp;&emsp;Contact us</h3><br>
+  <p>&emsp; We're open for any suggestion or just to have a chat</p>
+   <br><br>
+   <p>&emsp;&emsp;&emsp;&emsp;<em class="fa-solid fa-location-dot">&emsp;</em>Address&nbsp;:&nbsp;198 west 21 th<br>&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp; Street,Suite
+  <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;721 New York NY &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;10016</p>
+   <br><br>
+   
+    <p>&emsp;&emsp;&emsp;&emsp;<em class="fa-solid fa-phone"></em>&emsp;Phone&nbsp;&nbsp;:&nbsp;+ 1235 2355 98<br></p>
+ <br><br>
+  <p>&emsp;&emsp;&emsp;&emsp;<em class="fa-solid fa-envelope"></em>&emsp;Email&emsp;:
+    +abc@gmail.com<br></p>
+ <br><br>
+  <p>&emsp;&emsp;&emsp;&emsp;<em class="fa-brands fa-firefox"></em>&emsp;Website&nbsp;:&nbsp;
+   yoursite.com<br></p>
+ <br>
+ </div>
+  </div>
+ </div>
+</body>
+</html>

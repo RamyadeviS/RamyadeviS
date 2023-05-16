@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="ISO-8859-1">
+<title>Epass Form</title>
+<link rel="stylesheet" th:href="@{/CSS files/EpaasForm.css}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epass Form Apply</title>
+<link rel="stylesheet" th:href="@{/CSS files/Dashboard.css}">
+<link
+	th:href="@{http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css}"
+	rel="Stylesheet" type="text/css" />
+
+</head>
+<body>
+	<ol>
+		<button><a th:href="@{/userDashboard}"><em class="fa-solid fa-table-list"></em>&nbsp;Go Back</a> </button>
+	</ol>
+
+	<div class="menu-bar">
+		<ul>
+
+			<ol>
+				<a th:href="@{/EpassApply}"><em
+					class="fa-sharp fa-solid fa-car-side"></em>&nbsp;E-Pass Form</a>
+			</ol>
+			<ol>
+				<a th:href="@{/travelPassApply}"><em class="fa-solid fa-plane"></em>&nbsp;Travel
+					Pass Form</a>
+			</ol>
+			<ol>
+				<a th:href="@{/userView}"><em class="fa-brands fa-wpforms"></em>&nbsp;Epass
+					Status View</a>
+			</ol>
+			<ol>
+				<a th:href="@{/travelView}"><em class="fa-brands fa-wpforms"></em>&nbsp;Travel
+					Pass Status View</a>
+			</ol>
+			<ol>
+				<a th:href="@{/}"><em class="fa-solid fa-right-from-bracket"></em>&nbsp;Logout</a>
+			</ol>
+
+		</ul>
+	</div>
+
+	<br>
+	<br>
+	<h1>E-Pass Apply Form</h1>
+	<header>
+		<div class="container">
+			<div class="left">
+				<form id="form1" name="myform1" onsubmit="validateForm1()"
+					th:action="@{/epassForm}" th:object="${FormApply}" method="post"
+					enctype="multipart/form-data">
+					<div id=form-set style="display: flex;">
+						<div>
+							<label>Applicant Name <input type="text"
+								name="applicantName" id="applicantName"
+								th:value="${session.UserName}" readonly="readonly" required></label>
+
+							<div class="session"></div>
+
+							<br> <label>Aadhar Number </label><br> <input type="number"
+								name="aadharNo" id="aadharNo" th:value="${session.AadharNo}"
+								readonly="readonly" required>
+
+							<div id="zip">
+								<label> <br> Gender <br> <Select name="Gender"
+									th:field="*{gender}">
+										<option th:field="*{gender}" value="Female">Female</option>
+										<option th:field="*{gender}" value="Male">Male</option>
+										<option th:field="*{gender}" value="Transgender">Transgender</option>
+								</Select>
+								</label>
+							</div>
+							<div>
+								<label> <br>Reason <br> <Select name="Reason"
+									th:field="*{reason}">
+										<option th:field="*{reason}" value="Logistic Deliveries">logistic
+											Deliveries</option>
+										<option th:field="*{reason}" value="Medical Supply">Medical
+											Supply</option>
+										<option th:field="*{reason}" value="Essential Services">Essential
+											Services</option>
+										<option th:field="*{reason}" value="Medical Emergency">Medical
+											Emergency</option>
+										<option th:field="*{reason}" value="Government Duty">Government
+											Duty</option>
+										<option th:field="*{reason}" value="Death Cause">Death
+											Cause</option>
+										<option th:field="*{reason}" value="Wedding Function">Wedding
+											Function</option>
+								</Select>
+								</label>
+							</div>
+
+							<br> <label>Father Name</label> <input type="text" name="FatherName"
+								id="FatherName" placeholder="Father Name"
+								th:field="*{fatherName}" required onkeyup="fatherNameValid()" pattern="^[A-Za-z ]*$" title="Father Name must contain uppercase and lowecase" >
+							<span id="fathername-validation"></span> <br> <br>
+						
+							<label>Date Of Birth</label>  <input type="date" min="1950-01-01" max="2004-04-01"
+								name="dob" placeholder="dob" th:field="*{dob}" id="dob" required>
+
+							<br> <br>	<label>	 <br> From District <Select name="From District" th:field="*{fromDistrict}">
+						    <option th:field="*{fromDistrict}" value="Ariyalur">Ariyalur</option>
+						    <option th:field="*{fromDistrict}" value="Chengalpattu">Chengalpattu</option>
+						    <option th:field="*{fromDistrict}" value="Chennai">Chennai</option>
+						    <option th:field="*{fromDistrict}" value="Coimbatore">Coimbatore</option>
+						    <option th:field="*{fromDistrict}" value="Cuddalore">Cuddalore</option>
+						    <option th:field="*{fromDistrict}" value="Dharmapuri">Dharmapuri</option>
+						    <option th:field="*{fromDistrict}" value="Dindigul">Dindigul</option>
+						    <option th:field="*{fromDistrict}" value="Erode">Erode</option>
+						    <option th:field="*{fromDistrict}" value="Kallakurichi">Kallakurichi</option>
+						    <option th:field="*{fromDistrict}" value="Kanchipuram">Kanchipuram</option>
+						    <option th:field="*{fromDistrict}" value="Kanniyakumari">Kanniyakumari</option>
+						    <option th:field="*{fromDistrict}" value="Karur">Karur</option>
+						    <option th:field="*{fromDistrict}" value="Krishnagiri">Krishnagiri</option>
+						    <option th:field="*{fromDistrict}" value="Madurai">Madurai</option>
+						    <option th:field="*{fromDistrict}" value="Mayiladuthurai">Mayiladuthurai</option>
+						    <option th:field="*{fromDistrict}" value="Nagapattinam">Nagapattinam</option>
+						    <option th:field="*{fromDistrict}" value="Namakkal">Namakkal</option>
+						    <option th:field="*{fromDistrict}" value="Nilgiris">Nilgiris</option>
+						    <option th:field="*{fromDistrict}" value="Perambalur">Perambalur</option>
+						    <option th:field="*{fromDistrict}" value="Pudukkottai">Pudukkottai</option>
+						    <option th:field="*{fromDistrict}" value="Ramanathapuram">Ramanathapuram</option>
+						    <option th:field="*{fromDistrict}" value="Ranipet">Ranipet</option>
+						    <option th:field="*{fromDistrict}" value="Salem">Salem</option>
+						    <option th:field="*{fromDistrict}" value="Sivagangai">Sivagangai</option>
+						    <option th:field="*{fromDistrict}" value="Tenkasi">Tenkasi</option>
+						    <option th:field="*{fromDistrict}" value="Thanjavur">Thanjavur</option>
+						    <option th:field="*{fromDistrict}" value="Theni">Theni</option>
+						    <option th:field="*{fromDistrict}" value="Thoothukudi">Thoothukudi</option>
+						    <option th:field="*{fromDistrict}" value="Tiruchirappalli">Tiruchirappalli</option>
+						    <option th:field="*{fromDistrict}" value="Tirunelveli">Tirunelveli</option>
+						    <option th:field="*{fromDistrict}" value="Tirupathur">Tirupathur</option>
+						    <option th:field="*{fromDistrict}" value="Tiruppur">Tiruppur</option>
+						    <option th:field="*{fromDistrict}" value="Tiruvallur">Tiruvallur</option>
+						    <option th:field="*{fromDistrict}" value="Tiruvannamalai">Tiruvannamalai</option>
+						    <option th:field="*{fromDistrict}" value="Tiruvarur">Tiruvarur</option>
+						    <option th:field="*{fromDistrict}" value="Vellore">Vellore</option>
+						    <option th:field="*{fromDistrict}" value="Viluppuram">Viluppuram</option>
+						    <option th:field="*{fromDistrict}" value="Virudhunagar">Virudhunagar</option>
+						    			</Select>
+								</label>
+						
+							<!-- 	name="FromDistrict" id="FromDistrict"
+								placeholder="From District" th:field="*{fromDistrict}" required
+								onkeyup="fromDistrictValid()"> <span
+								id="fromDistrict-error"></span> <br> &emsp; &emsp; &emsp; -->
+							
+						</div>
+						<div class="right">
+							<label>	<br> <br>  To District <Select name=" To District" th:field="*{toDistrict}">
+						    <option th:field="*{toDistrict}" value="Ariyalur">Ariyalur</option>
+						    <option th:field="*{toDistrict}" value="Chengalpattu">Chengalpattu</option>
+						    <option th:field="*{toDistrict}" value="Chennai">Chennai</option>
+						    <option th:field="*{toDistrict}" value="Coimbatore">Coimbatore</option>
+						    <option th:field="*{toDistrict}" value="Cuddalore">Cuddalore</option>
+						    <option th:field="*{toDistrict}" value="Dharmapuri">Dharmapuri</option>
+						    <option th:field="*{toDistrict}" value="Dindigul">Dindigul</option>
+						    <option th:field="*{toDistrict}" value="Erode">Erode</option>
+						    <option th:field="*{toDistrict}" value="Kallakurichi">Kallakurichi</option>
+						    <option th:field="*{toDistrict}" value="Kanchipuram">Kanchipuram</option>
+						    <option th:field="*{toDistrict}" value="Kanniyakumari">Kanniyakumari</option>
+						    <option th:field="*{toDistrict}" value="Karur">Karur</option>
+						    <option th:field="*{toDistrict}" value="Krishnagiri">Krishnagiri</option>
+						    <option th:field="*{toDistrict}" value="Madurai">Madurai</option>
+						    <option th:field="*{toDistrict}" value="Mayiladuthurai">Mayiladuthurai</option>
+						    <option th:field="*{toDistrict}" value="Nagapattinam">Nagapattinam</option>
+						    <option th:field="*{toDistrict}" value="Namakkal">Namakkal</option>
+						    <option th:field="*{toDistrict}" value="Nilgiris">Nilgiris</option>
+						    <option th:field="*{toDistrict}" value="Perambalur">Perambalur</option>
+						    <option th:field="*{toDistrict}" value="Pudukkottai">Pudukkottai</option>
+						    <option th:field="*{toDistrict}" value="Ramanathapuram">Ramanathapuram</option>
+						    <option th:field="*{toDistrict}" value="Ranipet">Ranipet</option>
+						    <option th:field="*{toDistrict}" value="Salem">Salem</option>
+						    <option th:field="*{toDistrict}" value="Sivagangai">Sivagangai</option>
+						    <option th:field="*{toDistrict}" value="Tenkasi">Tenkasi</option>
+						    <option th:field="*{toDistrict}" value="Thanjavur">Thanjavur</option>
+						    <option th:field="*{toDistrict}" value="Theni">Theni</option>
+						    <option th:field="*{toDistrict}" value="Thoothukudi">Thoothukudi</option>
+						    <option th:field="*{toDistrict}" value="Tiruchirappalli">Tiruchirappalli</option>
+						    <option th:field="*{toDistrict}" value="Tirunelveli">Tirunelveli</option>
+						    <option th:field="*{toDistrict}" value="Tirupathur">Tirupathur</option>
+						    <option th:field="*{toDistrict}" value="Tiruppur">Tiruppur</option>
+						    <option th:field="*{toDistrict}" value="Tiruvallur">Tiruvallur</option>
+						    <option th:field="*{toDistrict}" value="Tiruvannamalai">Tiruvannamalai</option>
+						    <option th:field="*{toDistrict}" value="Tiruvarur">Tiruvarur</option>
+						    <option th:field="*{toDistrict}" value="Vellore">Vellore</option>
+						    <option th:field="*{toDistrict}" value="Viluppuram">Viluppuram</option>
+						    <option th:field="*{toDistrict}" value="Virudhunagar">Virudhunagar</option>
+						    			</Select>
+								</label>
+							<br><br>	
+							<label> Travel Date</label> <input type="date" name="TravelDate"
+								placeholder="TravelDate" id="TravelDate"
+								th:field="*{travelDate}" required onchange="day()"> <br>
+							
+							<br> <label>Return Date </label><input type="date" name="ReturnDate"
+								placeholder="ReturnDate" id="ReturnDate"
+								th:field="*{returnDate}" onchange="day()" required > <br> <br>
+
+							<label>No Of Passengers</label><br> <input type="text"
+								name="NoOfPassengers" id="NoOfPassengers"
+								placeholder="No Of Passengers" th:field="*{noOfPassengers}"
+								required onkeyup="passengersValidation()" pattern="([0-4]+)" title="Passengers are 1 to 4 members only allowed"> <span
+								id="passengers-validation"></span> <br> <br>
+								
+								<label> Vehicle No </label><br>
+							<input type="text" name="VehicleNo" id="VehicleNo"
+								placeholder="Vehicle No" th:field="*{vehicleNo}" required
+								onkeyup="vehicleNoValidation()" pattern="^[A-Z]{2}[ ][0-9]{1,2}(?: [A-Z])?(?: [A-Z]{2})? [0-9]{4}$" title="Invalid vehicle Number" > <span
+								id="vehicleNo-validation"></span> <br> <br>
+								
+								
+								<label> Mobile Number</label> <br>
+							
+							<input type="tel" name="MobileNo" id="MobileNo"
+								placeholder="**********"  th:value="${session.MobileNo}" required
+								onkeyup="mobileNoValidation()" pattern="[6-9][0-9]{9}" title="Mobile No must be contain 10 digits and Mobile Number can start with numbers are 6,7,8,9" > <span
+								id="mobileNo-validation"></span> <br> <br>
+								
+								 <label>
+								Vaccination Certificate &nbsp;<br> <select
+								name="VaccinationCertificate" id="VaccinationCertificate"
+								th:field="*{vaccinationCertificate}" required >
+
+									<option th:field="*{vaccinationCertificate}" id="Yes"
+										value="Yes">Yes</option>
+									<option th:field="*{vaccinationCertificate}" id="No" value="No">No</option>
+
+							</select> <span id="vaccinationCertificate-validation"></span> <br> <br>
+								<br>
+							</label>
+							
+							 <label> Upload Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+								type="file" name="VaccineImage" required><br> <br>&emsp;&emsp;
+								<button type="Submit" value="Go back!" onclick="history.back()">Go Back</button>
+								&nbsp;&nbsp;&nbsp;
+								<button type="submit" id="btn" onclick="Drop()">&nbsp;Submit</button>
+							</label>
+							
+						</div>
+				</form>
+			</div>
+		</div>
+	</header>
+
+
+	<script type="text/javascript">
+
+	// get the select element and the button element
+const select = document.getElementById('VaccinationCertificate');
+const button = document.getElementById('btn');
+
+// add an event listener to the select element
+select.addEventListener('change', function() {
+  // get the selected value
+  const selectedValue = select.value;
+  
+  // if the selected value is "no", disable the button
+  if (selectedValue === 'No') {
+    button.disabled = true;
+  } 
+else {
+    button.disabled = false;
+  }
+
+});
+</script>
+
+	<script type="text/javascript">
+	function day(){
+	const TravelDate = new Date(document.querySelector('#TravelDate').value);
+    const ReturnDate = new Date(document.querySelector('#ReturnDate').value);
+
+    if (ReturnDate < TravelDate) {
+        alert("Return date is greater than Travel date!");
+        console.log("Return date is greater than Travel date!");
+        return false;
+    }
+	return true;
+	}
+    </script>  
+
+<script type="text/javascript"
+		th:src="@{/Java Script/TravelDate.js}"></script>
+		
+<script type="text/javascript"
+		th:src="@{/Java Script/District.js}"></script>
+
+	<script type="text/javascript"
+		th:src="@{/Java Script/ScriptValidation.js}"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="ISO-8859-1">
+	
+	<div class="menu-bar">
+		<ul>
+<ol>
+ <a th:href="@{/userDashboard}"><em class="fa-solid fa-table-list"></em>&nbsp;Back</a> <br><br>
+	</ol>
+<ol>
+<a th:href="@{/epassHistory}" id="historyView"><em class="fa-solid fa-table-list"></em>&nbsp;View History</a>
+</ol>
+<ol>
+ <a th:href="@{/getEpass}" id="download">Download E-Pass </a>
+			</ol>
+<ol>
+<a th:href="@{/}"><em class="fa-solid fa-right-from-bracket"></em>&nbsp;Logout</a>
+</ol>
+			
+		</ul>
+	</div>
+	
+	
+<title>E-Pass List</title>
+
+<!-- slick grid start -->
+<link rel="stylesheet" th:href="@{/CSS files/ApplicationNo.css}">
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css}"
+	type="text/css" />
+
+<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}"
+	type="text/css" />
+
+<!-- <style>
+.slick-headerrow-column {
+	background:teal;
+	text-overflow: clip;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.slick-headerrow-column input {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+</style> -->
+
+<!-- slick grid end -->
+
+</head>
+
+<body>
+<div class="Pic">
+  <img alt="covid" src="/Images/CovidStop.gif">
+  </div>
+     
+<div class="Container">
+<form name="form" th:action="@{/userView}" method="Get" align="center">
+
+<div class="details">
+<h1>&emsp;E-Pass Status Check</h1>
+ <br><br><br>Application No:<br><br>
+ <input type="text" name="applicationNo" id="applicationNo" placeholder="ApplicationNo"><br><br>
+ 
+   <button type="Submit">Submit</button>
+   
+</div>
+</form>
+
+	<div style="position: relative; margin-top: 80px;" align="center">
+
+		<div style="width: 200px;">
+
+			<div id="myGrid" style="width: 100%; height: 700px;"></div>
+
+		</div>
+
+	</div>
+</div>
+	<div th:attr="data-myvar=${epassStatusView}" id="myDiv"></div>
+
+	<script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+
+	<script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.core.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+
+	<script th:src="@{/SlickGrid/slick.grid.js}"></script>
+	
+	<script th:src="@{/SlickGrid/lib/firebugx.js}"></script>
+   <script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+    <script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+    <script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+
+    <script th:src="@{/SlickGrid/slick.core.js}"></script>
+    <script th:src="@{/SlickGrid/plugins/slick.checkboxselectcolumn.js}"></script>
+<script th:src="@{/SlickGrid/plugins/slick.autotooltips.js}"></script>
+<script th:src="@{/SlickGrid/plugins/slick.cellrangedecorator.js}"></script>
+<script th:src="@{/SlickGrid/plugins/slick.cellrangeselector.js}"></script>
+<script th:src="@{/SlickGrid/plugins/slick.cellcopymanager.js}"></script>
+<script th:src="@{/SlickGrid/plugins/slick.cellselectionmodel.js}"></script>
+<script th:src="@{/SlickGrid/plugins/slick.rowselectionmodel.js}"></script>
+<script th:src="@{/SlickGrid/controls/slick.columnpicker.js}"></script>
+<script th:src="@{/SlickGrid/slick.formatters.js}"></script>
+<script th:src="@{/SlickGrid/slick.editors.js}"></script>
+    <script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+    <script th:src="@{/SlickGrid/slick.grid.js}"></script>
+
+	<script th:inline="javascript">
+		var epassStatusView;
+
+		var statusGrid;
+
+		var columnFilters = {};
+
+		/*<![CDATA[*/
+
+		var data = /*[[${epassStatusView}]]*/'a';
+
+		/*]]>*/
+
+		console.log(data);
+
+		/* set unique it to array */
+
+		var nextId = 1;
+
+		data.forEach(function(item) {
+
+			// Generate a unique id using the nextId value
+
+			var itemId = "item_" + nextId;
+
+			// Set the id property of the item object
+
+			item.id = itemId;
+
+			// Increment the nextId value
+
+			nextId++;
+
+		});
+
+		// Use the updated items array list with unique ids
+
+		console.log(data);
+
+		/* unique id end */
+
+		var options = {
+
+			enableCellNavigation : true,
+
+			showHeaderRow : true,
+
+			headerRowHeight : 40,
+
+			explicitInitialization : true
+
+		};
+
+		var columnFilters = {};
+
+		var columns = [ {
+
+			
+			id : "status",
+
+			name : "Status",
+
+			field : "status",
+			
+			width:200,
+			
+			height:100
+		    
+		} ];
+
+
+		/* filter start */
+
+		$(function() {
+
+			function filter(item) {
+
+				for ( var columnId in columnFilters) {
+
+					if (columnId !== undefined
+
+					&& columnFilters[columnId] !== "") {
+
+						var c = grid.getColumns()[grid.getColumnIndex(columnId)];
+
+						if (item[c.field] != columnFilters[columnId]) {
+
+							return false;
+
+						}
+
+					}
+
+				}
+
+				return true;
+
+			}
+
+			/* filter end */
+
+			epassStatusView = new Slick.Data.DataView();
+
+			statusGrid = new Slick.Grid("#myGrid", epassStatusView, columns, options);
+
+			/* filter start */
+
+			epassStatusView.onRowCountChanged.subscribe(function(e, args) {
+
+				statusGrid.updateRowCount();
+
+				statusGrid.render();
+
+			});
+
+			epassStatusView.onRowsChanged.subscribe(function(e, args) {
+
+				statusGrid.invalidateRows(args.rows);
+
+				statusGrid.render();
+
+			});
+
+			$(statusGrid.getHeaderRow()).delegate(":input", "change keyup",
+
+			function(e) {
+
+				var columnId = $(this).data("columnId");
+
+				if (columnId != null) {
+
+					columnFilters[columnId] = $.trim($(this).val());
+
+					epassStatusView.refresh();
+
+				}
+
+			});
+
+			statusGrid.onHeaderRowCellRendered.subscribe(function(e, args) {
+
+				$(args.node).empty();
+
+				$("<input type='text'>").data("columnId", args.column.id).val(
+
+				columnFilters[args.column.id]).appendTo(args.node);
+
+			});
+
+			statusGrid.init();
+
+			epassStatusView.beginUpdate();
+
+			epassStatusView.setItems(data);
+
+			epassStatusView.setFilter(filter);
+
+			epassStatusView.endUpdate();
+
+		})
+
+		/* filter end */
+	</script>
+</body>
+
+</html>
+
